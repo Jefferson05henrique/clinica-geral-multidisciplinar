@@ -429,51 +429,36 @@ section p {
 ========================================================= */
 
 .mvv {
-    display: grid;
+    max-width: 1200px;
+    margin: 0 auto;
 
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 30px;
-
-    align-items: stretch;
+    text-align: center;
 }
 
 .mvv-title {
-    grid-column: 1 / -1;
+    margin-bottom: 45px;
 }
 
 .mvv-image {
     width: 100%;
-    max-width: 180px;
+    max-width: 1100px;
 
-    height: 150px;
+    height: auto;
 
-    object-fit: contain;
+    margin: 0 auto;
 
-    margin: 0 auto 20px;
-}
-
-.mvv-description {
-    background-color: var(--cor-white);
-
-    padding: 25px;
-
-    border-radius: var(--raio);
+    border-radius: 20px;
 
     box-shadow: var(--sombra);
-
-    text-align: center;
-
-    min-height: 150px;
 
     transition: var(--transicao);
 }
 
-.mvv-description:hover {
-    transform: translateY(-6px);
+.mvv-image:hover {
+    transform: translateY(-5px);
+
     box-shadow: var(--sombra-hover);
 }
-
 
 /* =========================================================
    ESPECIALIDADES
@@ -853,6 +838,113 @@ footer > p {
 
     font-size: 14px;
 }
+/* =========================================================
+   PÁGINA: SOBRE O INSTITUTO (LAYOUT VERTICAL)
+========================================================= */
+
+.instituto-main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px 90px;
+    display: flex;
+    flex-direction: column; /* Garante alinhamento vertical dos cards */
+    gap: 40px;
+}
+
+/* Card Sobre o Instituto */
+.instituto-card {
+    background-color: var(--cor-white);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: var(--sombra);
+    
+    /* Força o conteúdo interno a ficar um abaixo do outro */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.instituto-card h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 46px);
+    color: var(--cor-dark);
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.instituto-card h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--cor-primary),
+        var(--cor-secondary)
+    );
+    margin-top: 12px;
+    border-radius: 10px;
+}
+
+.instituto-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--cor-texto-claro);
+    margin-bottom: 20px;
+    width: 100%; /* Garante ocupar a largura total do card */
+}
+
+.instituto-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Card Localização */
+.localizacao-card {
+    background-color: var(--cor-white);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: var(--sombra);
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center;
+}
+
+.localizacao-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 3.5vw, 38px);
+    color: var(--cor-dark);
+    margin-bottom: 15px;
+}
+
+.localizacao-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--cor-texto-claro);
+    max-width: 800px;
+    margin: 0 auto 15px;
+}
+
+.localizacao-card .endereco-destaque {
+    font-size: 1.1rem;
+    color: var(--cor-dark);
+    margin-bottom: 30px;
+}
+
+/* Container do Mapa */
+.map-container {
+    width: 100%;
+    border-radius: var(--raio);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 400px;
+    display: block;
+}
 
 
 /* =========================================================
@@ -1041,6 +1133,25 @@ footer > p {
     }
 
 
+    /* MISSÃO, VISÃO E VALORES */
+
+    @media (max-width: 650px) {
+
+    .mvv {
+        width: 100%;
+    }
+
+    .mvv-title {
+        margin-bottom: 30px;
+    }
+
+    .mvv-image {
+        width: 100%;
+
+        border-radius: 12px;
+    }
+    }
+
     /* Especialidades */
 
     .especialidades-nomes {
@@ -1080,6 +1191,21 @@ footer > p {
         font-size: 14px;
     }
 }
+/* Ajuste Responsivo para Celulares */
+@media (max-width: 650px) {
+    .instituto-main {
+        padding: 30px 15px 50px;
+    }
+
+    .instituto-card,
+    .localizacao-card {
+        padding: 30px 20px;
+    }
+
+    .map-container iframe {
+        height: 280px;
+    }
+}
 
 
 /* Celulares pequenos */
@@ -1098,3 +1224,4 @@ footer > p {
         grid-template-columns: 1fr;
     }
 }
+
