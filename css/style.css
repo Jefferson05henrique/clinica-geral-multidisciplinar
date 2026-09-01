@@ -1,0 +1,1100 @@
+/* =========================================================
+   IMPORTAÇÃO DAS FONTES
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Share+Tech&family=Source+Code+Pro:wght@400;500;600&display=swap');
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+    --cor-primary: #5BCEFA;
+    --cor-secondary: #F5A9B8;
+
+    --cor-primary-dark: #3AAEDB;
+    --cor-secondary-dark: #D98296;
+
+    --cor-background: #F5F5F5;
+    --cor-white: #FFFFFF;
+
+    --cor-texto: #263238;
+    --cor-texto-claro: #667085;
+
+    --cor-dark: #18232B;
+
+    --sombra: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --sombra-hover: 0 15px 35px rgba(0, 0, 0, 0.14);
+
+    --raio: 16px;
+
+    --widthImg: 100%;
+    --heightImg: auto;
+
+    --transicao: 0.3s ease;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Share Tech', sans-serif;
+    background-color: var(--cor-background);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+header {
+    width: 100%;
+    background-color: var(--cor-white);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+}
+
+nav {
+    width: 100%;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    min-height: 80px;
+
+    padding: 10px 25px;
+
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+/* Logo */
+
+.logo-link {
+    display: flex;
+    align-items: center;
+
+    margin-right: auto;
+}
+
+.logo-header {
+    width: 130px;
+    height: auto;
+
+    transition: var(--transicao);
+}
+
+.logo-header:hover {
+    transform: scale(1.04);
+}
+
+
+/* Links */
+
+.nav-links {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: var(--cor-texto);
+    font-size: 17px;
+
+    padding: 8px 0;
+
+    transition: var(--transicao);
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        to right,
+        var(--cor-primary),
+        var(--cor-secondary)
+    );
+
+    transition: var(--transicao);
+}
+
+.nav-links a:hover {
+    color: var(--cor-primary-dark);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   REDES SOCIAIS
+========================================================= */
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    transition: var(--transicao);
+}
+
+.social-icon {
+    width: 23px;
+    height: 23px;
+
+    object-fit: contain;
+}
+
+.social-link:hover {
+    background-color: var(--cor-background);
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   MENU HAMBÚRGUER
+========================================================= */
+
+.menu-hamburger {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    background: transparent;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.menu-hamburger span {
+    width: 25px;
+    height: 3px;
+
+    border-radius: 10px;
+
+    background-color: var(--cor-dark);
+}
+
+
+/* =========================================================
+   BANNER PRINCIPAL
+========================================================= */
+
+main > section:first-child {
+    min-height: 600px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(91, 206, 250, 0.92),
+            rgba(245, 169, 184, 0.92)
+        );
+}
+
+
+/* brilho decorativo */
+
+main > section:first-child::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    top: -200px;
+    right: -100px;
+}
+
+main > section:first-child::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    bottom: -150px;
+    left: -100px;
+}
+
+
+/* Overlay */
+
+.banner-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.08);
+}
+
+
+/* Conteúdo */
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+
+    padding: 40px 25px;
+
+    text-align: center;
+
+    color: var(--cor-white);
+}
+
+.banner-title {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(42px, 7vw, 78px);
+
+    font-weight: 700;
+
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+}
+
+.banner-description {
+    font-family: 'Source Code Pro', monospace;
+
+    font-size: clamp(16px, 2vw, 22px);
+
+    letter-spacing: 4px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.btn,
+.btn-exames,
+.contact-form button {
+    display: inline-block;
+
+    border: none;
+    border-radius: 50px;
+
+    padding: 14px 28px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: var(--transicao);
+}
+
+
+/* Botão principal */
+
+.btn {
+    background-color: var(--cor-white);
+    color: var(--cor-dark);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+
+    background-color: var(--cor-dark);
+    color: var(--cor-white);
+}
+
+
+/* =========================================================
+   SEÇÕES GERAIS
+========================================================= */
+
+main > section {
+    padding: 90px 25px;
+}
+
+.mvv,
+.especialidades,
+.exames,
+.profissionais,
+.contato {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(35px, 5vw, 50px);
+
+    text-align: center;
+
+    color: var(--cor-dark);
+
+    margin-bottom: 20px;
+}
+
+section p {
+    color: var(--cor-texto-claro);
+}
+
+
+/* =========================================================
+   MISSÃO, VISÃO E VALORES
+========================================================= */
+
+.mvv {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+    align-items: stretch;
+}
+
+.mvv-title {
+    grid-column: 1 / -1;
+}
+
+.mvv-image {
+    width: 100%;
+    max-width: 180px;
+
+    height: 150px;
+
+    object-fit: contain;
+
+    margin: 0 auto 20px;
+}
+
+.mvv-description {
+    background-color: var(--cor-white);
+
+    padding: 25px;
+
+    border-radius: var(--raio);
+
+    box-shadow: var(--sombra);
+
+    text-align: center;
+
+    min-height: 150px;
+
+    transition: var(--transicao);
+}
+
+.mvv-description:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-hover);
+}
+
+
+/* =========================================================
+   ESPECIALIDADES
+========================================================= */
+
+.especialidades {
+    text-align: center;
+}
+
+.especialidades-description {
+    max-width: 700px;
+
+    margin: 0 auto 50px;
+}
+
+.especialidades-nomes {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.especialidades-nomes > img,
+.especialidades-nomes > h3,
+.especialidades-nomes > p {
+    grid-column: auto;
+}
+
+.especialidade-icon {
+    width: 80px;
+    height: 80px;
+
+    object-fit: contain;
+
+    margin: 0 auto 15px;
+}
+
+.especialidades-nomes h3 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 27px;
+
+    color: var(--cor-dark);
+
+    margin-bottom: 5px;
+}
+
+.especialidades-nomes p {
+    font-size: 15px;
+}
+
+.especialidade-card {
+    background-color: var(--cor-white);
+
+    padding: 30px 20px;
+
+    border-radius: var(--raio);
+
+    box-shadow: var(--sombra);
+
+    transition: var(--transicao);
+}
+
+.especialidade-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: var(--sombra-hover);
+}
+
+
+/* =========================================================
+   EXAMES
+========================================================= */
+
+.exames {
+    text-align: center;
+
+    background-color: var(--cor-white);
+
+    padding: 50px;
+
+    border-radius: 25px;
+
+    box-shadow: var(--sombra);
+}
+
+.exames > p {
+    margin-bottom: 30px;
+}
+
+.exames-image {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+
+    border-radius: var(--raio);
+}
+
+.btn-exames {
+    background: linear-gradient(
+        90deg,
+        var(--cor-primary),
+        var(--cor-secondary)
+    );
+
+    color: var(--cor-dark);
+}
+
+.btn-exames:hover {
+    transform: translateY(-4px);
+
+    box-shadow: var(--sombra-hover);
+}
+
+
+/* =========================================================
+   PROFISSIONAIS
+========================================================= */
+
+.profissionais {
+    text-align: center;
+}
+
+.profissionais > p {
+    max-width: 700px;
+
+    margin: 0 auto 45px;
+}
+
+.team-card {
+    display: inline-flex;
+
+    vertical-align: top;
+
+    flex-direction: column;
+    align-items: center;
+
+    width: calc(25% - 20px);
+
+    margin: 10px;
+
+    padding: 25px 20px;
+
+    background-color: var(--cor-white);
+
+    border-radius: var(--raio);
+
+    box-shadow: var(--sombra);
+
+    transition: var(--transicao);
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: var(--sombra-hover);
+}
+
+.team-image {
+    width: 150px;
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    margin-bottom: 20px;
+
+    border: 5px solid var(--cor-primary);
+}
+
+.team-card:nth-child(even) .team-image {
+    border-color: var(--cor-secondary);
+}
+
+.team-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 25px;
+
+    color: var(--cor-dark);
+
+    margin-bottom: 5px;
+}
+
+.team-card p {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CONTATO
+========================================================= */
+
+.contato {
+    max-width: 800px;
+
+    text-align: center;
+}
+
+.contato > p {
+    max-width: 650px;
+
+    margin: 0 auto 35px;
+}
+
+.contact-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+
+    border: 1px solid #D9DDE2;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    font-size: 16px;
+
+    background-color: var(--cor-white);
+
+    color: var(--cor-texto);
+
+    outline: none;
+
+    transition: var(--transicao);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--cor-primary);
+
+    box-shadow: 0 0 0 3px rgba(91, 206, 250, 0.15);
+}
+
+.contact-form textarea {
+    min-height: 160px;
+
+    resize: vertical;
+}
+
+.contact-form button {
+    align-self: center;
+
+    min-width: 180px;
+
+    background: linear-gradient(
+        90deg,
+        var(--cor-primary),
+        var(--cor-secondary)
+    );
+
+    color: var(--cor-dark);
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+
+    box-shadow: var(--sombra-hover);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background-color: var(--cor-dark);
+
+    color: var(--cor-white);
+
+    padding: 60px 25px 25px;
+
+    text-align: center;
+}
+
+.footer-logo {
+    margin-bottom: 30px;
+}
+
+.logo-footer {
+    width: 140px;
+
+    margin: 0 auto;
+}
+
+.footer-links ul {
+    list-style: none;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+}
+
+.footer-links a {
+    transition: var(--transicao);
+}
+
+.footer-links a:hover {
+    color: var(--cor-primary);
+}
+
+.contato-footer {
+    margin-bottom: 30px;
+}
+
+.contato-footer p {
+    color: #D5DADF;
+
+    margin: 5px 0;
+}
+
+.link-redes {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.link-redes a {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background-color: rgba(255, 255, 255, 0.08);
+
+    transition: var(--transicao);
+}
+
+.link-redes a:hover {
+    background-color: rgba(91, 206, 250, 0.2);
+
+    transform: translateY(-4px);
+}
+
+.social-icon-footer {
+    width: 24px;
+    height: 24px;
+}
+
+footer hr {
+    border: none;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    margin-bottom: 20px;
+}
+
+footer > p {
+    color: #AEB7BE;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+
+/* Tablets */
+
+@media (max-width: 900px) {
+
+    .nav-container {
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .social-link {
+        display: none;
+    }
+
+    .mvv {
+        grid-template-columns: 1fr;
+    }
+
+    .mvv-title {
+        grid-column: auto;
+    }
+
+    .especialidades-nomes {
+        grid-template-columns: repeat(2, 1fr);
+
+        row-gap: 40px;
+    }
+
+    .team-card {
+        width: calc(50% - 25px);
+    }
+}
+
+
+/* Celulares */
+
+@media (max-width: 650px) {
+
+    main > section {
+        padding: 65px 18px;
+    }
+
+
+    /* =========================================================
+   NAVBAR MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .nav-container {
+        min-height: 70px;
+        padding: 10px 18px;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .logo-header {
+        width: 105px;
+    }
+
+    /* Botão hambúrguer */
+
+    .menu-hamburger {
+        display: flex;
+
+        margin-left: auto;
+
+        position: relative;
+        z-index: 1001;
+    }
+
+    /* Menu */
+
+    .nav-links {
+        order: 3;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        padding: 10px 0;
+
+        border-top: 1px solid #EEEEEE;
+    }
+
+    /* Quando o JavaScript adicionar .active */
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+
+        width: 100%;
+
+        padding: 12px;
+
+        font-size: 16px;
+    }
+
+    /* Esconde redes sociais no celular */
+
+    .social-link {
+        display: none;
+    }
+
+
+    /* =====================================================
+       BARRINHAS DO HAMBÚRGUER
+    ===================================================== */
+
+    .menu-hamburger span {
+        display: block;
+
+        width: 25px;
+        height: 3px;
+
+        border-radius: 10px;
+
+        background-color: var(--cor-dark);
+
+        transition: var(--transicao);
+    }
+
+
+    /* =====================================================
+       ANIMAÇÃO HAMBÚRGUER → X
+    ===================================================== */
+
+    .menu-hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+
+    /* Banner */
+
+    main > section:first-child {
+        min-height: 520px;
+    }
+
+    .banner-title {
+        font-size: 48px;
+    }
+
+    .banner-description {
+        font-size: 14px;
+
+        letter-spacing: 2px;
+    }
+
+    .btn {
+        padding: 13px 22px;
+
+        font-size: 14px;
+    }
+
+
+    /* Especialidades */
+
+    .especialidades-nomes {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+
+    /* Exames */
+
+    .exames {
+        padding: 35px 20px;
+    }
+
+
+    /* Profissionais */
+
+    .team-card {
+        display: flex;
+
+        width: 100%;
+
+        margin: 10px 0;
+    }
+
+
+    /* Footer */
+
+    .footer-links ul {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .contato-footer p {
+        font-size: 14px;
+    }
+}
+
+
+/* Celulares pequenos */
+
+@media (max-width: 400px) {
+
+    .banner-title {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    .nav-links {
+        grid-template-columns: 1fr;
+    }
+}
